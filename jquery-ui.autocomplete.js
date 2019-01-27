@@ -11,7 +11,7 @@
  * Source can be specified either directly or by data-source attribute.
  *
  * @author xemlock
- * @version 2014-06-06 / 2014-02-26 / 2013-07-20
+ * @version 2019-01-27 / 2014-06-06 / 2014-02-26 / 2013-07-20
  */
 jQuery.fn.autocomplete = (function (autocomplete) {
     "use strict";
@@ -114,23 +114,18 @@ jQuery.fn.autocomplete = (function (autocomplete) {
                         parseInt(j.css('borderRightWidth'), 10),
                     z = 0;
 
-                // set zIndex of suggesion list as a maximum of zIndexes
+                // set zIndex of suggestion list as a maximum of zIndexes
                 // encountered
                 // on a path from text input to document body
                 j.parents().each(function () {
-                    // do not rely on jQuery zIndex getter, as it returns (from
-                    // version 1.5 onwards) a float value, which will in most
-                    // cases be inaccurate:
+                    // jQuery zIndex getter, returns (from version 1.5 onwards) a float value:
                     //
                     // >>> document.body.style.zIndex = 1234567890;
                     // >>> document.body.style.zIndex
                     // "1234567890"
                     // >>> $(document.body).css('zIndex')
                     // "1.23457e+9"
-
-                    // Raw zIndex value contains only digits, so it can safely
-                    // be treated with parseInt
-                    z = Math.max(z, parseInt(this.style.zIndex, 10) || 0);
+                    z = Math.max(z, $(this).css('zIndex') | 0);
                 });
 
                 m.css({width: w, zIndex: 1 + z});
