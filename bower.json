@@ -1,0 +1,19 @@
+{
+  "name": "jquery-ui.autocomplete-enhanced",
+  "homepage": "https://github.com/xemlock/jquery-ui-autocomplete-enhanced",
+  "authors": [
+    "xemlock <xemlock@gmail.com>"
+  ],
+  "description": "Functionality and usability enhancements for jQuery UI autocomplete",
+  "main": "jquery-ui.autocomplete.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
